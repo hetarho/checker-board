@@ -1,24 +1,12 @@
-import { db } from "@/shared/api";
-import { collection, getDocs } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { useListAllCheckLists } from "@/shared/api";
+import { useEffect } from "react";
 
 export function HomePage() {
-  const [title, setTitle] = useState("");
+  const { data: checkLists } = useListAllCheckLists();
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    console.log(checkLists);
+  }, [checkLists]);
 
-  async function fetchData() {
-    try {
-      const querySnapshot = await getDocs(collection(db, "test"));
-      if (querySnapshot.docs.length > 0) {
-        setTitle(querySnapshot.docs[0].data().title);
-      }
-    } catch (e) {
-      console.error("read data error: ", e);
-    }
-  }
-
-  return <div>{title}</div>;
+  return <div>{checkLists?.map((checkList) => checkList.title)}</div>;
 }

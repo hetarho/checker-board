@@ -8,9 +8,7 @@ const listAllCheckLists = async () => {
   const docRef = collection(db, COLLECTIONS.CHECK_LIST);
   const docSnap = await getDocs(docRef);    
 
-  console.log(docSnap.docs)
   if (docSnap.docs.length > 0) {
-    console.log(docSnap)
     return docSnap.docs.map((doc) => doc.data() as CheckList);
   } else {
     throw new Error(`CheckList not found`);

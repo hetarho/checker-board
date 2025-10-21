@@ -1,5 +1,5 @@
-import { cn } from "@/shared/utils/cn";
-import { motion } from "motion/react";
+import { cn } from '@/shared/utils/cn';
+import { motion } from 'motion/react';
 
 type CheckList = {
   id: string;
@@ -16,13 +16,13 @@ type CheckerBoardProps = {
 export const CheckerBoard = ({ checkLists, col }: CheckerBoardProps) => {
   return (
     <div
-      className={cn("grid w-52 rounded-2xl overflow-hidden bg-gray-200", {
-        "grid-cols-2": col === 2,
-        "grid-cols-3": col === 3,
-        "grid-cols-4": col === 4,
-        "grid-cols-5": col === 5,
-        "grid-cols-6": col === 6,
-        "grid-cols-10": col === 10,
+      className={cn('grid w-52 overflow-hidden rounded-2xl bg-gray-200', {
+        'grid-cols-2': col === 2,
+        'grid-cols-3': col === 3,
+        'grid-cols-4': col === 4,
+        'grid-cols-5': col === 5,
+        'grid-cols-6': col === 6,
+        'grid-cols-10': col === 10,
       })}
     >
       {checkLists.map((checkList, index) => {
@@ -38,10 +38,10 @@ export const CheckerBoard = ({ checkLists, col }: CheckerBoardProps) => {
             transition={{
               duration: 1.5,
               delay: diagonalDelay,
-              ease: "easeInOut",
+              ease: 'easeInOut',
             }}
-            className={cn("bg-red-400 aspect-square", {
-              "bg-blue-400": index % 2 === 0,
+            className={cn('aspect-square bg-red-400', {
+              'bg-blue-400': index % 2 === 0,
             })}
           >
             <h2>{checkList.title}</h2>

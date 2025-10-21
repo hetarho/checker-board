@@ -1,8 +1,8 @@
-import { CheckerBoard } from "@/entities/check-list/ui/CheckerBoard";
+import { CheckerBoard } from '@/entities/check-list/ui/CheckerBoard';
 
 export function HomePage() {
   return (
-    <div className="flex justify-center w-screen pt-20">
+    <div className="flex w-screen justify-center pt-20">
       <CheckerBoard
         checkLists={Array.from({ length: 10 }, (_, index) => ({
           id: index.toString(),

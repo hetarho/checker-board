@@ -2,7 +2,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../db";
 import type { CheckList } from "../types/check-list.type";
 import { useQuery } from "@tanstack/react-query";
-import { COLLECTIONS } from "../constant/collections";
+import { COLLECTIONS } from "../../lib/firebase/constant/collections";
 
 const listAllCheckLists = async () => {
   const docRef = collection(db, COLLECTIONS.CHECK_LIST);
